@@ -3,27 +3,29 @@ A simple library management system database using MySQL and MySQL Workbench app 
 
 ### Database Structure
 
-- Database Name: LibraryDB
+1. Database Name: LibraryDB
 
-- tables: 
+2. tables: 
  
- 1. Books - contains book_id(primary key), title, author, genre, published_year
- 2. Borrowers: contaibs borrowers_id(primary key), name, email, phone_number
- 3. BurrowedBooks: borrowed_id(primary key), 2 primary keys of prrevious table as foreign key (book_id and borrowers_id), borrow_date, return_date
+ - Books - contains book_id(primary key), title, author, genre, published_year
+ - Borrowers: contaibs borrowers_id(primary key), name, email, phone_number
+ - BurrowedBooks: borrowed_id(primary key), 2 primary keys of prrevious table as foreign key (book_id and borrowers_id), borrow_date, return_date
 
 ### Relationship between tables
 
 1. Books and BorrowedBooks
- Type of Relationship: One-to-Many
- Primary Key: Books.book_id
- Foreign Key: BorrowedBooks.book_id
- Description: A single book can be borrowed multiple times by different borrowers over time. The Books table is related to the BorrowedBooks table via the book_id field. The book_id in the Books table is a primary key, and in the BorrowedBooks table, it is a foreign key. This relationship ensures that each entry in the BorrowedBooks table corresponds to a valid book in the Books table.
+
+ - Type of Relationship: One-to-Many
+ - Primary Key: Books.book_id
+ - Foreign Key: BorrowedBooks.book_id
+ - Description: A single book can be borrowed multiple times by different borrowers over time. The Books table is related to the BorrowedBooks table via the book_id field. The book_id in the Books table is a primary key, and in the BorrowedBooks table, it is a foreign key. This relationship ensures that each entry in the BorrowedBooks table corresponds to a valid book in the Books table.
  
 2. Borrowers and BorrowedBooks
- Type of Relationship: One-to-Many
- Primary Key: Borrowers.borrower_id
- Foreign Key: BorrowedBooks.borrower_id
- Description: A single borrower can borrow multiple books over time. The Borrowers table is related to the BorrowedBooks table via the borrower_id field. The borrower_id in the Borrowers table is a primary key, and in the BorrowedBooks table, it is a foreign key. This relationship ensures that each entry in the BorrowedBooks table corresponds to a valid borrower in the Borrowers table.
+
+ - Type of Relationship: One-to-Many
+ - Primary Key: Borrowers.borrower_id
+ - Foreign Key: BorrowedBooks.borrower_id
+ - Description: A single borrower can borrow multiple books over time. The Borrowers table is related to the BorrowedBooks table via the borrower_id field. The borrower_id in the Borrowers table is a primary key, and in the BorrowedBooks table, it is a foreign key. This relationship ensures that each entry in the BorrowedBooks table corresponds to a valid borrower in the Borrowers table.
 
 ### Queries performed
 
@@ -86,11 +88,17 @@ DELETE FROM Borrowers WHERE borrower_id = 2;
 
 ### CRUD operations Screenshots:
 
-1. Create and Read all Books, Burrowers and BurrowedBooks from table:
+1. Create/ Insert and Read all tables
+
+- Books table
 
 ![ReadlistAllBooks](./assets/ReadlistAllBooks.png)
 
+- Burrowers table 
+
 ![ReadlistAllBurrowers](./assets/ReadlistAllBurrowers.png)
+
+- BurrowedBooks table
 
 ![ReadlistAllBurrowedBooks](./assets/ReadlistAllBurrowedBooks.png)
 
